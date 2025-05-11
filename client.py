@@ -33,7 +33,6 @@ if "documents" in st.session_state:
     st.session_state.embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     # st.session_state.llm = Ollama(model="llama-3.3-70b-versatile")
     st.session_state.final_documents = create_chunks(st.session_state.documents)
-    st.write(f"documents are chunked: {len(st.session_state.final_documents)}")
     st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents,
                                                     st.session_state.embeddings)
 
